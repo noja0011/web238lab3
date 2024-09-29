@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nora (Portfolio) Jaafar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".project:odd").hover(
+                function() {
+                    $(this).fadeTo(300, 0.7);
+        },
+            function() {
+            $(this).fadeTo(300, 1.0);
+        }
+    );
+
+    $("#showButton").on("click", function() {
+        $("#toggleContent").toggle();
+    });
+
+    const images = [
+        "image1.jpg",
+        "image2.jpg",
+        "image3.jpg",
+        "image4.jpg",
+        "image5.jpg"
+    ];
+    let currentDirectory = 0;
+
+    $("#myGallery").click(function() {
+        $("#myImage").fadeOut(800, function() {
+        currentDirectory = (currentDirectory + 1) % images.length;
+        $(this).attr("src", images[currentDirectory]).fadeIn(800);
+        });
+    });
+});
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Designer/Developer</h1>
+        <div id="myGallery">
+            <img id="myImage" src="image1.jpg" alt="Nora?">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a developing developer with many interests!</p>
+    </section>
+
+    <section id="projects">
+        <h2>My Work</h2>
+        <div class="project">1</div>
+        <div class="project">2</div>
+        <div class="project">3</div>
+        <div class="project">4</div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>njaafar@stumail.jccc.edu</p>
+        <p>913-596-6789</p>
+    </section>
+
+    <button id="showButton">More Info</button>
+    <div id="toggleContent" style="display:none;">
+        <p>More Info Coming Soon!</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Nora Jaafar</p>
+    </footer>
+
+</body>
+</html>
